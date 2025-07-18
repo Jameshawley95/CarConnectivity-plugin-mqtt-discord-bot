@@ -59,8 +59,8 @@ dmypy.json
 .vscode/
 
 # MQTT / App specific (if applicable)
-carconnectivity.json  # Your config file
-discord_message_id.txt  # If you store message ID locally (optional)
+carconnectivity.json
+discord_message_id.txt
 
 # System
 Thumbs.db
