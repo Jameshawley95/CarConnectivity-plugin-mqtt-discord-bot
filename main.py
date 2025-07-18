@@ -10,7 +10,8 @@ from voluptuous import message
 from parse_data import extract_data
 from discord_updater import WEBHOOK_URL, send_new_message_with_mention, send_or_update_message
 
-mqtt_exe_path = Path(r"C:\Users\james\AppData\Local\Programs\Python\Python313\Scripts\carconnectivity-mqtt.exe")
+mqtt_exe_path = Path("carconnectivity-mqtt")
+
 config_path = Path("carconnectivity.json")
 notified_charge_full = False
 last_car_message = ""
