@@ -75,11 +75,12 @@ def fetch_data():
 
         # Check for full charge and ping role if needed
         match = re.search(r"Battery Level:\s*(\d+)", message)
-        if match:
-            charge_level = int(match.group(1))
-        else:
-            print("❌ Could not find Battery Level in message, assuming unknown charge level.")
-            charge_level = 0
+        if not match:
+            print("❌ Could not find Battery Level in message, skipping charge logic.")
+            send_or_update_message(message)
+            return
+
+        charge_level = int(match.group(1))
 
         # Full charge notification logic
         if charge_level >= 100:
