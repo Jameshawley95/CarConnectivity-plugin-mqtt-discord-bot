@@ -3,7 +3,6 @@ import time
 import re
 import schedule
 import threading
-import platform
 from pathlib import Path
 from datetime import datetime
 
@@ -39,15 +38,8 @@ def fetch_data():
     print(f"\n[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] Fetching car data...")
 
     try:
-        
-        if platform.system() == "Windows":
-            mqtt_exe_path = Path("carconnectivity-mqtt.exe")
-            cmd = [str(mqtt_exe_path), str(config_path)]
-        else:
-            cmd = ["python3", "-m", "carconnectivity_mqtt", str(config_path)]
-
         process = subprocess.Popen(
-            cmd,
+            [str(mqtt_exe_path), str(config_path)],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
             text=True
